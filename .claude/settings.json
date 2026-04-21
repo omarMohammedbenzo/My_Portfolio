@@ -9,7 +9,12 @@
       "Bash(php -l database/migrations/2026_04_22_000002_create_experiences_table.php)",
       "Bash(php -l database/migrations/2026_04_22_000003_create_educations_table.php)",
       "Bash(php -l database/migrations/2026_04_22_000004_create_skills_table.php)",
-      "Bash(php -l database/migrations/2026_04_22_000005_create_projects_table.php)"
+      "Bash(php -l database/migrations/2026_04_22_000005_create_projects_table.php)",
+      "Bash(php -l database/seeders/AdminUserSeeder.php)",
+      "Bash(php -l database/seeders/CvSeeder.php)",
+      "Bash(php -l database/seeders/SettingsSeeder.php)",
+      "Bash(php -l database/seeders/DatabaseSeeder.php)",
+      "Bash(grep -v \"^\\\\s*$\")"
     ],
     "additionalDirectories": [
       "d:\\Work\\portfolio_temp"

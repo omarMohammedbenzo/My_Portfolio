@@ -9,6 +9,8 @@ class Education extends Model
 {
     use HasTranslations;
 
+    protected $table = 'educations';
+
     protected $fillable = [
         'school',
         'degree',
