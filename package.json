@@ -1,0 +1,38 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.2.4",
+        "axios": "^1.11.0",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^2.0.0",
+        "tailwindcss": "^4.2.4",
+        "vite": "^7.0.7"
+    },
+    "dependencies": {
+        "@inertiajs/vue3": "^3.0.3",
+        "@tiptap/extension-placeholder": "^3.22.4",
+        "@tiptap/starter-kit": "^3.22.4",
+        "@tiptap/vue-3": "^3.22.4",
+        "@vitejs/plugin-vue": "^6.0.6",
+        "@vueuse/core": "^14.2.1",
+        "@vueuse/motion": "^3.0.3",
+        "canvas-confetti": "^1.9.4",
+        "chart.js": "^4.5.1",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "lucide-vue-next": "^1.0.0",
+        "radix-vue": "^1.9.17",
+        "shadcn-vue": "^2.6.2",
+        "tailwind-merge": "^3.5.0",
+        "vue": "^3.5.32",
+        "vue-chartjs": "^5.3.3",
+        "vuedraggable": "^4.1.0",
+        "ziggy-js": "^2.6.2"
+    }
+}
