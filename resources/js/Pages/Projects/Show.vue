@@ -61,9 +61,10 @@ const gradientStyle = (p) => {
 
                     <!-- Main content -->
                     <div class="lg:col-span-2">
-                        <p class="text-muted-foreground leading-relaxed whitespace-pre-line">
-                            {{ tr(project.description) || tr(project.short_description) }}
-                        </p>
+                        <div
+                            class="text-muted-foreground leading-relaxed html-content"
+                            v-html="tr(project.long_description) || tr(project.description)"
+                        />
 
                         <!-- Gallery -->
                         <div v-if="project.images?.length" class="mt-10">

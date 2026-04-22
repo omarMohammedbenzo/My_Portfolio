@@ -5,7 +5,7 @@ export function useTranslations() {
 
     function t(key, replacements = {}) {
         const translations = page.props.translations ?? {};
-        let text = translations[key] ?? key;
+        let text = key.split('.').reduce((obj, k) => obj?.[k], translations) ?? key;
 
         Object.entries(replacements).forEach(([k, v]) => {
             text = text.replaceAll(`:${k}`, v);

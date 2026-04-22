@@ -58,9 +58,10 @@ const gradientStyle = (p) => {
                         <p class="mt-2 text-xl font-medium text-primary md:text-2xl">
                             {{ tr(personalInfo?.title) }}
                         </p>
-                        <p class="mt-5 max-w-lg text-base text-muted-foreground leading-relaxed">
-                            {{ tr(personalInfo?.summary) }}
-                        </p>
+                        <div
+                            class="mt-5 max-w-lg text-base text-muted-foreground leading-relaxed html-content"
+                            v-html="tr(personalInfo?.summary)"
+                        />
 
                         <div class="mt-8 flex flex-wrap gap-3">
                             <Link :href="lroute('projects.index')">

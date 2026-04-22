@@ -65,3 +65,11 @@ html.dark {
         color: var(--color-foreground);
     }
 }
+
+/* ── HTML content rendered via v-html ── */
+.html-content ul   { list-style: disc; padding-inline-start: 1.25rem; margin-top: 0.25rem; }
+.html-content ol   { list-style: decimal; padding-inline-start: 1.25rem; margin-top: 0.25rem; }
+.html-content li   { margin-bottom: 0.25rem; line-height: 1.6; }
+.html-content p    { margin-bottom: 0.5rem; }
+.html-content strong { font-weight: 600; }
+.html-content a    { color: var(--color-primary); text-decoration: underline; }

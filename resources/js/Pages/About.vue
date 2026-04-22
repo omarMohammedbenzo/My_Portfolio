@@ -64,9 +64,10 @@ function formatDate(dateStr) {
                     >
                         <p class="mb-3 text-sm font-medium text-primary">{{ t('about.label') }}</p>
                         <h1 class="text-4xl font-bold text-foreground">{{ t('about.title') }}</h1>
-                        <p class="mt-5 text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                            {{ tr(personalInfo?.summary) }}
-                        </p>
+                        <div
+                            class="mt-5 text-base text-muted-foreground leading-relaxed html-content"
+                            v-html="tr(personalInfo?.summary)"
+                        />
                         <div class="mt-6 flex flex-wrap gap-4 text-sm text-muted-foreground">
                             <span v-if="tr(personalInfo?.location)">📍 {{ tr(personalInfo?.location) }}</span>
                             <a v-if="personalInfo?.socials?.github"   :href="personalInfo.socials.github"   target="_blank" class="hover:text-foreground">GitHub ↗</a>
@@ -175,9 +176,11 @@ function formatDate(dateStr) {
                                 <p v-if="tr(exp.location)" class="mt-1 text-xs text-muted-foreground">
                                     📍 {{ tr(exp.location) }}
                                 </p>
-                                <p v-if="tr(exp.description)" class="mt-3 text-sm text-muted-foreground leading-relaxed">
-                                    {{ tr(exp.description) }}
-                                </p>
+                                <div
+                                    v-if="tr(exp.description)"
+                                    class="mt-3 text-sm text-muted-foreground leading-relaxed html-content"
+                                    v-html="tr(exp.description)"
+                                />
                             </div>
                         </div>
                     </div>
@@ -212,9 +215,11 @@ function formatDate(dateStr) {
                                 {{ formatDate(edu.start_date) }} – {{ formatDate(edu.end_date) }}
                             </p>
                         </div>
-                        <p v-if="tr(edu.description)" class="mt-3 text-sm text-muted-foreground">
-                            {{ tr(edu.description) }}
-                        </p>
+                        <div
+                            v-if="tr(edu.description)"
+                            class="mt-3 text-sm text-muted-foreground html-content"
+                            v-html="tr(edu.description)"
+                        />
                     </div>
                 </div>
             </div>
