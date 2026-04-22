@@ -4,6 +4,7 @@ import { computed }            from 'vue';
 import PublicLayout            from '@/Layouts/PublicLayout.vue';
 import HeartButton             from '@/Components/HeartButton.vue';
 import { useTranslations }     from '@/composables/useTranslations';
+import { useLocaleRoute }      from '@/composables/useLocaleRoute';
 
 const props = defineProps({
     personalInfo:     Object,
@@ -12,7 +13,8 @@ const props = defineProps({
 });
 
 const { t, locale } = useTranslations();
-const loc = locale();
+const loc    = locale();
+const lroute = useLocaleRoute();
 
 function tr(obj) { return obj?.[loc] || obj?.en || ''; }
 
@@ -61,17 +63,17 @@ const gradientStyle = (p) => {
                         </p>
 
                         <div class="mt-8 flex flex-wrap gap-3">
-                            <Link :href="route('projects.index')">
+                            <Link :href="lroute('projects.index')">
                                 <button class="inline-flex items-center rounded-lg bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
                                     {{ t('hero.view_projects') }}
                                 </button>
                             </Link>
-                            <a :href="route('cv.download')" target="_blank">
+                            <a :href="lroute('cv.download')" target="_blank">
                                 <button class="inline-flex items-center rounded-lg border border-border bg-card px-6 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-colors">
                                     {{ t('hero.download_cv') }}
                                 </button>
                             </a>
-                            <Link :href="route('contact')">
+                            <Link :href="lroute('contact')">
                                 <button class="inline-flex items-center rounded-lg border border-border bg-card px-6 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-colors">
                                     {{ t('hero.contact_me') }}
                                 </button>
@@ -113,7 +115,7 @@ const gradientStyle = (p) => {
                             />
                             <div
                                 v-else
-                                class="h-full w-full rounded-3xl bg-gradient-to-br from-violet-500 to-indigo-600 shadow-2xl flex items-center justify-center"
+                                class="h-full w-full rounded-3xl bg-linear-to-br from-violet-500 to-indigo-600 shadow-2xl flex items-center justify-center"
                             >
                                 <span class="text-6xl text-white font-bold">{{ tr(personalInfo?.name)?.charAt(0) }}</span>
                             </div>
@@ -133,7 +135,7 @@ const gradientStyle = (p) => {
                         <p class="text-sm font-medium text-primary mb-1">{{ t('projects.featured_label') }}</p>
                         <h2 class="text-3xl font-bold text-foreground">{{ t('projects.featured_title') }}</h2>
                     </div>
-                    <Link :href="route('projects.index')" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    <Link :href="lroute('projects.index')" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
                         {{ t('projects.view_all') }} →
                     </Link>
                 </div>
@@ -142,7 +144,7 @@ const gradientStyle = (p) => {
                     <Link
                         v-for="project in featuredProjects"
                         :key="project.id"
-                        :href="route('projects.show', project.slug)"
+                        :href="lroute('projects.show', { slug: project.slug })"
                         class="group rounded-2xl overflow-hidden border border-border bg-card hover:shadow-lg transition-shadow duration-300"
                     >
                         <!-- Thumbnail -->

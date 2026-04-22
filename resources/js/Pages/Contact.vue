@@ -2,6 +2,7 @@
 import { Head }            from '@inertiajs/vue3';
 import { useForm }         from '@inertiajs/vue3';
 import PublicLayout        from '@/Layouts/PublicLayout.vue';
+import { useLocaleRoute }  from '@/composables/useLocaleRoute';
 import HeartButton         from '@/Components/HeartButton.vue';
 import Input               from '@/Components/ui/Input.vue';
 import { useTranslations } from '@/composables/useTranslations';
@@ -9,6 +10,7 @@ import { useTranslations } from '@/composables/useTranslations';
 const props = defineProps({ personalInfo: Object });
 
 const { t } = useTranslations();
+const lroute = useLocaleRoute();
 
 const form = useForm({
     name:    '',
@@ -18,7 +20,7 @@ const form = useForm({
 });
 
 function submit() {
-    form.post(route('contact.store'), {
+    form.post(lroute('contact.store'), {
         onSuccess: () => form.reset(),
     });
 }

@@ -4,6 +4,7 @@ import { ref, computed }       from 'vue';
 import PublicLayout            from '@/Layouts/PublicLayout.vue';
 import HeartButton             from '@/Components/HeartButton.vue';
 import { useTranslations }     from '@/composables/useTranslations';
+import { useLocaleRoute }      from '@/composables/useLocaleRoute';
 
 const props = defineProps({
     projects:   Array,
@@ -11,7 +12,8 @@ const props = defineProps({
 });
 
 const { t, locale } = useTranslations();
-const loc = locale();
+const loc    = locale();
+const lroute = useLocaleRoute();
 function tr(obj) { return obj?.[loc] || obj?.en || ''; }
 
 const allTech = computed(() => {
@@ -23,7 +25,7 @@ const allTech = computed(() => {
 });
 
 function filterBy(tech) {
-    router.get(route('projects.index'), tech ? { tech } : {}, { preserveScroll: true });
+    router.get(lroute('projects.index', tech ? { tech } : {}), {}, { preserveScroll: true });
 }
 
 const gradientStyle = (p) => {
@@ -77,7 +79,7 @@ const gradientStyle = (p) => {
                     <Link
                         v-for="project in projects"
                         :key="project.id"
-                        :href="route('projects.show', project.slug)"
+                        :href="lroute('projects.show', { slug: project.slug })"
                         class="group rounded-2xl overflow-hidden border border-border bg-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                         v-motion
                         :initial="{ opacity: 0, y: 30 }"
@@ -98,7 +100,7 @@ const gradientStyle = (p) => {
                             </div>
                             <!-- Links overlay -->
                             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
-                                <span v-if="project.url" class="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-900">Live ↗</span>
+                                <span v-if="project.live_url" class="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-900">Live ↗</span>
                                 <span v-if="project.github_url" class="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-900">GitHub ↗</span>
                             </div>
                         </div>

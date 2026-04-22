@@ -18,7 +18,7 @@ class HomeController extends Controller
         $featured = Project::published()->featured()->ordered()->get();
         $skills   = Skill::ordered()->get()->groupBy(fn ($s) => $s->category->value);
 
-        return Inertia::render('Public/Home', [
+        return Inertia::render('Home', [
             'personalInfo' => [
                 'name'     => $info->getTranslations('name'),
                 'title'    => $info->getTranslations('title'),
@@ -38,6 +38,7 @@ class HomeController extends Controller
                 'cover_url'       => $p->cover_url,
                 'gradient_colors' => $p->default_gradient,
                 'live_url'        => $p->live_url,
+                'short_description' => $p->getTranslations('description'),
                 'github_url'      => $p->github_url,
             ]),
             'settings' => [

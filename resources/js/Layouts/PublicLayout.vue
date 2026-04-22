@@ -1,20 +1,20 @@
 <script setup>
-import { ref }             from 'vue';
-import { Link, usePage }   from '@inertiajs/vue3';
-import { useTranslations } from '@/composables/useTranslations';
-import { useDarkMode }     from '@/composables/useDarkMode';
+import { ref }              from 'vue';
+import { Link }             from '@inertiajs/vue3';
+import { useTranslations }  from '@/composables/useTranslations';
+import { useDarkMode }      from '@/composables/useDarkMode';
+import { useLocaleRoute }   from '@/composables/useLocaleRoute';
 
-const { t, locale, isRtl } = useTranslations();
-const { toggle, isDark }    = useDarkMode();
-const page                  = usePage();
-
-const mobileOpen = ref(false);
+const { t, locale }  = useTranslations();
+const { toggle, isDark } = useDarkMode();
+const lroute         = useLocaleRoute();
+const mobileOpen     = ref(false);
 
 const navLinks = [
-    { key: 'nav.home',     route: 'home' },
-    { key: 'nav.about',    route: 'about' },
-    { key: 'nav.projects', route: 'projects' },
-    { key: 'nav.contact',  route: 'contact' },
+    { key: 'nav.home',     name: 'home' },
+    { key: 'nav.about',    name: 'about' },
+    { key: 'nav.projects', name: 'projects.index' },
+    { key: 'nav.contact',  name: 'contact' },
 ];
 
 function switchLocale(loc) {
@@ -29,7 +29,7 @@ function switchLocale(loc) {
         <header class="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-sm">
             <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
                 <!-- Logo -->
-                <Link :href="route('home')" class="text-lg font-bold text-foreground">
+                <Link :href="lroute('home')" class="text-lg font-bold text-foreground">
                     Omar.dev
                 </Link>
 
@@ -37,10 +37,10 @@ function switchLocale(loc) {
                 <nav class="hidden md:flex items-center gap-6">
                     <Link
                         v-for="link in navLinks"
-                        :key="link.route"
-                        :href="route(link.route)"
+                        :key="link.name"
+                        :href="lroute(link.name)"
                         class="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                        :class="{ 'text-foreground font-medium': route().current(link.route) }"
+                        :class="{ 'text-foreground font-medium': route().current(link.name + '*') }"
                     >{{ t(link.key) }}</Link>
                 </nav>
 
@@ -71,8 +71,8 @@ function switchLocale(loc) {
             <div v-if="mobileOpen" class="md:hidden border-t border-border px-4 py-3 space-y-1">
                 <Link
                     v-for="link in navLinks"
-                    :key="link.route"
-                    :href="route(link.route)"
+                    :key="link.name"
+                    :href="lroute(link.name)"
                     class="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted"
                     @click="mobileOpen = false"
                 >{{ t(link.key) }}</Link>

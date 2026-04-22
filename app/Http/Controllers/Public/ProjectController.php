@@ -22,7 +22,7 @@ class ProjectController extends Controller
             'id'              => $p->id,
             'slug'            => $p->slug,
             'title'           => $p->getTranslations('title'),
-            'description'     => $p->getTranslations('description'),
+            'short_description' => $p->getTranslations('description'),
             'tech_stack'      => $p->tech_stack,
             'cover_url'       => $p->cover_url,
             'gradient_colors' => $p->default_gradient,
@@ -36,10 +36,10 @@ class ProjectController extends Controller
             ->flatMap(fn ($p) => $p->tech_stack ?? [])
             ->unique()->values();
 
-        return Inertia::render('Public/Projects/Index', [
-            'projects'    => $projects,
-            'allTech'     => $allTech,
-            'filterTech'  => $tech,
+        return Inertia::render('Projects/Index', [
+            'projects'   => $projects,
+            'allTech'    => $allTech,
+            'activetech' => $tech,
         ]);
     }
 
@@ -51,7 +51,7 @@ class ProjectController extends Controller
             ->where('order', '>', $project->order)
             ->ordered()->first();
 
-        return Inertia::render('Public/Projects/Show', [
+        return Inertia::render('Projects/Show', [
             'project' => [
                 'id'               => $project->id,
                 'slug'             => $project->slug,

@@ -17,7 +17,7 @@ class ContactController extends Controller
     {
         $info = PersonalInfo::main();
 
-        return Inertia::render('Public/Contact', [
+        return Inertia::render('Contact', [
             'personalInfo' => [
                 'email'    => $info->email,
                 'phone'    => $info->phone,

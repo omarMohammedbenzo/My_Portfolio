@@ -20,11 +20,13 @@ class AboutController extends Controller
         $educations  = Education::ordered()->get();
         $skills      = Skill::ordered()->get();
 
-        return Inertia::render('Public/About', [
+        return Inertia::render('About', [
             'personalInfo' => [
                 'name'     => $info->getTranslations('name'),
                 'title'    => $info->getTranslations('title'),
                 'summary'  => $info->getTranslations('summary'),
+                'location' => $info->getTranslations('location'),
+                'email'    => $info->email,
                 'socials'  => $info->socials,
                 'avatar'   => $info->avatar_url,
             ],

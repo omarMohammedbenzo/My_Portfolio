@@ -4,6 +4,7 @@ import { ref }              from 'vue';
 import PublicLayout         from '@/Layouts/PublicLayout.vue';
 import HeartButton          from '@/Components/HeartButton.vue';
 import { useTranslations }  from '@/composables/useTranslations';
+import { useLocaleRoute }   from '@/composables/useLocaleRoute';
 
 const props = defineProps({
     project:     Object,
@@ -11,7 +12,8 @@ const props = defineProps({
 });
 
 const { t, locale } = useTranslations();
-const loc = locale();
+const loc    = locale();
+const lroute = useLocaleRoute();
 function tr(obj) { return obj?.[loc] || obj?.en || ''; }
 
 const lightboxSrc = ref(null);
@@ -42,9 +44,10 @@ const gradientStyle = (p) => {
                 class="h-full w-full object-cover"
             />
             <div v-else class="h-full w-full" :style="gradientStyle(project)" />
-            <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-            <div class="absolute bottom-0 start-0 end-0 mx-auto max-w-4xl px-4 pb-8">
-                <Link :href="route('projects.index')" class="text-xs text-white/70 hover:text-white mb-3 inline-block">
+            <div class="absolute inset-0 bg-linear-to-t from-background/80 to-transparent" />
+
+            <div class="absolute bottom-0 inset-s-0 inset-e-0 mx-auto max-w-4xl px-4 pb-8">
+                <Link :href="lroute('projects.index')" class="text-xs text-white/70 hover:text-white mb-3 inline-block">
                     ← {{ t('projects.back') }}
                 </Link>
                 <h1 class="text-3xl md:text-4xl font-bold text-white">{{ tr(project.title) }}</h1>
@@ -90,8 +93,8 @@ const gradientStyle = (p) => {
                         <div class="rounded-xl border border-border bg-card p-5 space-y-3">
                             <h3 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Links</h3>
                             <a
-                                v-if="project.url"
-                                :href="project.url"
+                                v-if="project.live_url"
+                                :href="project.live_url"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="flex items-center gap-2 text-sm text-primary hover:underline"
@@ -125,7 +128,7 @@ const gradientStyle = (p) => {
                 <div v-if="nextProject" class="mt-16 border-t border-border pt-10">
                     <p class="mb-3 text-sm text-muted-foreground">{{ t('projects.next') }}</p>
                     <Link
-                        :href="route('projects.show', nextProject.slug)"
+                        :href="lroute('projects.show', { slug: nextProject.slug })"
                         class="group flex items-center justify-between rounded-2xl border border-border bg-card p-5 hover:shadow-md transition-shadow"
                     >
                         <div>
@@ -148,7 +151,7 @@ const gradientStyle = (p) => {
                 @click.self="lightboxSrc = null"
             >
                 <button
-                    class="absolute top-4 end-4 text-white/70 hover:text-white text-2xl"
+                    class="absolute top-4 inset-e-4 text-white/70 hover:text-white text-2xl"
                     @click="lightboxSrc = null"
                 >✕</button>
                 <img :src="lightboxSrc" class="max-h-[90vh] max-w-full rounded-xl shadow-2xl" />

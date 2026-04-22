@@ -4,6 +4,7 @@ import { computed }        from 'vue';
 import PublicLayout        from '@/Layouts/PublicLayout.vue';
 import HeartButton         from '@/Components/HeartButton.vue';
 import { useTranslations } from '@/composables/useTranslations';
+import { useLocaleRoute }  from '@/composables/useLocaleRoute';
 
 const props = defineProps({
     personalInfo: Object,
@@ -14,7 +15,8 @@ const props = defineProps({
 });
 
 const { t, locale } = useTranslations();
-const loc = locale();
+const loc    = locale();
+const lroute = useLocaleRoute();
 function tr(obj) { return obj?.[loc] || obj?.en || ''; }
 
 const img1    = computed(() => props.settings?.about_image_1    ? `/${props.settings.about_image_1}`    : null);
@@ -72,7 +74,7 @@ function formatDate(dateStr) {
                             <a v-if="personalInfo?.email"             :href="`mailto:${personalInfo.email}`"              class="hover:text-foreground">{{ personalInfo.email }}</a>
                         </div>
                         <div class="mt-6">
-                            <a :href="route('cv.download')" target="_blank">
+                            <a :href="lroute('cv.download')" target="_blank">
                                 <button class="inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
                                     {{ t('hero.download_cv') }}
                                 </button>
@@ -86,13 +88,13 @@ function formatDate(dateStr) {
                         :initial="{ opacity: 0, x: 30 }"
                         :enter="{ opacity: 1, x: 0, transition: { duration: 600, delay: 150 } }"
                     >
-                        <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-lg">
+                        <div class="rounded-2xl overflow-hidden aspect-3/4 shadow-lg">
                             <img v-if="img1" :src="img1" :alt="img1Alt" class="h-full w-full object-cover" />
-                            <div v-else class="h-full w-full bg-gradient-to-br from-violet-500 to-indigo-600" />
+                            <div v-else class="h-full w-full bg-linear-to-br from-violet-500 to-indigo-600" />
                         </div>
-                        <div class="rounded-2xl overflow-hidden aspect-[3/4] shadow-lg mt-8">
+                        <div class="rounded-2xl overflow-hidden aspect-3/4 shadow-lg mt-8">
                             <img v-if="img2" :src="img2" :alt="img2Alt" class="h-full w-full object-cover" />
-                            <div v-else class="h-full w-full bg-gradient-to-br from-indigo-500 to-purple-600" />
+                            <div v-else class="h-full w-full bg-linear-to-br from-indigo-500 to-purple-600" />
                         </div>
                     </div>
                 </div>
@@ -146,7 +148,7 @@ function formatDate(dateStr) {
 
                 <div class="relative">
                     <!-- Timeline line -->
-                    <div class="absolute start-6 top-0 bottom-0 w-px bg-border" />
+                    <div class="absolute inset-s-6 top-0 bottom-0 w-px bg-border" />
 
                     <div class="space-y-8">
                         <div
@@ -158,12 +160,12 @@ function formatDate(dateStr) {
                             :visible="{ opacity: 1, x: 0, transition: { duration: 500 } }"
                         >
                             <!-- Dot -->
-                            <div class="absolute start-4 top-1.5 h-4 w-4 rounded-full border-2 border-primary bg-background" />
+                            <div class="absolute inset-s-4 top-1.5 h-4 w-4 rounded-full border-2 border-primary bg-background" />
 
                             <div class="rounded-xl border border-border bg-card p-5">
                                 <div class="flex flex-wrap items-start justify-between gap-2">
                                     <div>
-                                        <h3 class="font-semibold text-foreground">{{ tr(exp.position) }}</h3>
+                                        <h3 class="font-semibold text-foreground">{{ tr(exp.role) }}</h3>
                                         <p class="text-sm font-medium text-primary">{{ tr(exp.company) }}</p>
                                     </div>
                                     <p class="text-xs text-muted-foreground shrink-0">

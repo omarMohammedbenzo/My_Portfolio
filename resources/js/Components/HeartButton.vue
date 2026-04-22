@@ -1,12 +1,13 @@
 <script setup>
 import { ref, onMounted }  from 'vue';
-import { router, usePage } from '@inertiajs/vue3';
+import { usePage }         from '@inertiajs/vue3';
 import confetti            from 'canvas-confetti';
+import { useLocaleRoute }  from '@/composables/useLocaleRoute';
 
-const page     = usePage();
 const reacted  = ref(false);
 const count    = ref(0);
 const loading  = ref(false);
+const lroute   = useLocaleRoute();
 
 const storageKey = () => `heart:${window.location.pathname}`;
 
@@ -28,7 +29,7 @@ async function react() {
     if (reacted.value || loading.value) return;
     loading.value = true;
     try {
-        await fetch(route('reactions.store'), {
+        await fetch(lroute('reactions.store'), {
             method:  'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +52,7 @@ async function react() {
 
 <template>
     <button
-        class="fixed bottom-6 end-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-200 select-none"
+        class="fixed bottom-6 inset-e-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-200 select-none"
         :class="[
             reacted
                 ? 'bg-rose-500 scale-110'
