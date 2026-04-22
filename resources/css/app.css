@@ -6,10 +6,16 @@
 @source '../**/*.js';
 @source '../**/*.vue';
 
+/* ── Base design tokens ─────────────────────────────────────────────────── */
 @theme {
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 
+    /* Site base palette — dark first */
+    --color-bg-base:     #0a0a0f;
+    --color-bg-elevated: #12121a;
+
+    /* Semantic tokens wired to light-mode defaults */
     --color-background: hsl(0 0% 100%);
     --color-foreground: hsl(222.2 84% 4.9%);
     --color-muted: hsl(210 40% 96.1%);
@@ -30,7 +36,7 @@
     --radius: 0.5rem;
 }
 
-/* Arabic font — Cairo: geometric, clean, designed for modern Arabic UI */
+/* ── Arabic font ────────────────────────────────────────────────────────── */
 html[lang='ar'] {
     --font-sans: 'Cairo', ui-sans-serif, system-ui, sans-serif;
     letter-spacing: 0;
@@ -38,26 +44,27 @@ html[lang='ar'] {
     word-spacing: 0.05em;
 }
 
-/* Dark mode overrides (class-based) */
+/* ── Dark mode overrides (class-based) ──────────────────────────────────── */
 html.dark {
-    --color-background: hsl(222.2 84% 4.9%);
+    --color-background: #0a0a0f;
     --color-foreground: hsl(210 40% 98%);
-    --color-muted: hsl(217.2 32.6% 17.5%);
+    --color-muted: #12121a;
     --color-muted-foreground: hsl(215 20.2% 65.1%);
-    --color-border: hsl(217.2 32.6% 17.5%);
-    --color-primary: hsl(243 75% 65%);
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-primary: var(--color-accent-primary);
     --color-primary-foreground: hsl(0 0% 100%);
-    --color-secondary: hsl(217.2 32.6% 17.5%);
+    --color-secondary: #12121a;
     --color-secondary-foreground: hsl(210 40% 98%);
-    --color-accent: hsl(217.2 32.6% 17.5%);
+    --color-accent: #12121a;
     --color-accent-foreground: hsl(210 40% 98%);
-    --color-card: hsl(222.2 84% 7%);
+    --color-card: #12121a;
     --color-card-foreground: hsl(210 40% 98%);
-    --color-popover: hsl(222.2 84% 4.9%);
+    --color-popover: #0a0a0f;
     --color-popover-foreground: hsl(210 40% 98%);
-    --color-ring: hsl(243 75% 65%);
+    --color-ring: var(--color-accent-primary);
 }
 
+/* ── Base layer ─────────────────────────────────────────────────────────── */
 @layer base {
     * {
         border-color: var(--color-border);
@@ -66,6 +73,107 @@ html.dark {
     body {
         background-color: var(--color-background);
         color: var(--color-foreground);
+    }
+}
+
+/* ── Reusable component utilities ───────────────────────────────────────── */
+@layer components {
+
+    /* Glass card — dark semi-transparent panel with blur */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1rem;
+    }
+
+    /* Glow on hover using theme accent color */
+    .glow-on-hover {
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .glow-on-hover:hover {
+        box-shadow: 0 0 24px rgba(var(--color-accent-glow-rgb, var(--color-accent-primary-rgb)), 0.35);
+        transform: translateY(-2px);
+    }
+
+    /* Gradient text using theme accent */
+    .gradient-text {
+        background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Section eyebrow label */
+    .eyebrow {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-accent-primary);
+    }
+}
+
+/* ── Keyframe animations ────────────────────────────────────────────────── */
+
+/* Drifting gradient mesh blobs */
+@keyframes drift-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%       { transform: translate(60px, -40px) scale(1.1); }
+    66%       { transform: translate(-30px, 50px) scale(0.95); }
+}
+@keyframes drift-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%       { transform: translate(-80px, 30px) scale(1.05); }
+}
+@keyframes drift-3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40%       { transform: translate(40px, 60px) scale(1.08); }
+    80%       { transform: translate(-20px, -30px) scale(0.98); }
+}
+
+/* Floating photo */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+}
+
+/* Scroll chevron pulse */
+@keyframes bounce-down {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50%       { transform: translateY(6px); opacity: 1; }
+}
+
+/* Timeline node pulse */
+@keyframes pulse-node {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(var(--color-accent-primary-rgb), 0.6); }
+    50%       { box-shadow: 0 0 0 8px rgba(var(--color-accent-primary-rgb), 0); }
+}
+
+/* Animated counter (no-op — handled in JS via @vueuse) */
+
+/* SVG wave movement */
+@keyframes wave-move-1 {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes wave-move-2 {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ── Reduced motion — disable decorative animations ────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .animate-drift-1,
+    .animate-drift-2,
+    .animate-drift-3,
+    .animate-float,
+    .animate-bounce-down,
+    .animate-pulse-node,
+    .animate-wave-1,
+    .animate-wave-2 {
+        animation: none !important;
     }
 }
 

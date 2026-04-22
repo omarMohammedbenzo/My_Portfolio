@@ -17,12 +17,15 @@ class SkillController extends Controller
     public function index(): Response
     {
         $skills = Skill::ordered()->get()->map(fn ($s) => [
-            'id'       => $s->id,
-            'name'     => $s->getTranslations('name'),
-            'category' => $s->category->value,
-            'level'    => $s->level,
-            'icon'     => $s->icon,
-            'order'    => $s->order,
+            'id'         => $s->id,
+            'name'       => $s->getTranslations('name'),
+            'category'   => $s->category->value,
+            'level'      => $s->level,
+            'icon_slug'  => $s->icon_slug,
+            'icon_set'   => $s->icon_set,
+            'icon_color' => $s->icon_color,
+            'years'      => $s->years,
+            'order'      => $s->order,
         ]);
 
         return Inertia::render('Dashboard/Skills/Index', [
@@ -48,12 +51,15 @@ class SkillController extends Controller
     {
         return Inertia::render('Dashboard/Skills/Edit', [
             'skill' => [
-                'id'       => $skill->id,
-                'name'     => $skill->getTranslations('name'),
-                'category' => $skill->category->value,
-                'level'    => $skill->level,
-                'icon'     => $skill->icon,
-                'order'    => $skill->order,
+                'id'         => $skill->id,
+                'name'       => $skill->getTranslations('name'),
+                'category'   => $skill->category->value,
+                'level'      => $skill->level,
+                'icon_slug'  => $skill->icon_slug,
+                'icon_set'   => $skill->icon_set ?? 'simple-icons',
+                'icon_color' => $skill->icon_color,
+                'years'      => $skill->years,
+                'order'      => $skill->order,
             ],
             'categories' => collect(SkillCategory::cases())->map(fn ($c) => ['value' => $c->value, 'label' => $c->label()]),
         ]);

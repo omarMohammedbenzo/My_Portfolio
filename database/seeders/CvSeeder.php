@@ -85,6 +85,7 @@ class CvSeeder extends Seeder
                 'start_date'      => '2025-10-01',
                 'end_date'        => null,
                 'is_current'      => true,
+                'tech_stack'      => ['Laravel', 'Vue.js', 'MySQL', 'Moyasar', 'StcPay', 'Jira'],
                 'description'     => [
                     'en' => "<ul><li>Developed scalable solutions as a Backend Developer specializing in Laravel and Vue.js.</li><li>Architected complex integrations, including payment gateways (Moyasar, StcPay) and SMS services for rental.sa.</li><li>Collaborated in Agile (Scrum) environments, utilizing Jira.</li></ul>",
                     'ar' => "<ul><li>طوّرت حلولاً قابلة للتوسع بوصفي مطوراً خلفياً متخصصاً في Laravel وVue.js.</li><li>صمّمت تكاملات معقدة تشمل بوابات الدفع (Moyasar وStcPay) وخدمات الرسائل القصيرة لـ rental.sa.</li><li>عملت في بيئات Agile (Scrum) باستخدام Jira.</li></ul>",
@@ -100,6 +101,7 @@ class CvSeeder extends Seeder
                 'start_date'      => '2025-07-01',
                 'end_date'        => null,
                 'is_current'      => true,
+                'tech_stack'      => ['Moodle', 'MySQL', 'Linux'],
                 'description'     => [
                     'en' => "<ul><li>Manage Moodle LMS Administration and Academic Content Supervision.</li></ul>",
                     'ar' => "<ul><li>إدارة نظام Moodle LMS والإشراف على المحتوى الأكاديمي.</li></ul>",
@@ -115,6 +117,7 @@ class CvSeeder extends Seeder
                 'start_date'      => '2024-12-01',
                 'end_date'        => '2025-07-31',
                 'is_current'      => false,
+                'tech_stack'      => ['Laravel', 'React', 'MySQL', 'Fawry', 'Firebase FCM', 'Telegram Bot'],
                 'description'     => [
                     'en' => "<ul><li>Led the backend development for the platform's complete redesign with React frontend, delivering scalable RESTful APIs to power web and mobile applications.</li><li>Built a custom operational CRM API system supporting 14+ different roles and workflows.</li><li>Developed and integrated payment gateways (Fawry), OTP verification via WhatsApp (Meta) and SMS services, Firebase Cloud Messaging (FCM), and Telegram bots to automate notifications and system alerts.</li><li>Collaborated closely with frontend engineers and product teams.</li><li>Managed and mentored a backend team, providing code reviews, architectural guidance, and support.</li></ul>",
                     'ar' => "<ul><li>قدت تطوير الواجهة الخلفية لإعادة تصميم شاملة للمنصة مع واجهة React أمامية، وتسليم RESTful APIs قابلة للتوسع لتشغيل تطبيقات الويب والجوال.</li><li>بنيت نظام CRM تشغيلي مخصص يدعم أكثر من 14 دوراً وسير عمل مختلفة.</li><li>طوّرت وكاملت بوابات الدفع (Fawry)، والتحقق عبر OTP بواسطة WhatsApp وSMS، وFirebase Cloud Messaging، وروبوتات Telegram لأتمتة الإشعارات وتنبيهات النظام.</li><li>تعاونت عن كثب مع مهندسي الواجهة الأمامية وفرق المنتج.</li><li>أدرت وأرشدت فريق التطوير الخلفي وقدمت مراجعات الكود والتوجيه المعماري.</li></ul>",
@@ -130,6 +133,7 @@ class CvSeeder extends Seeder
                 'start_date'      => '2024-05-01',
                 'end_date'        => '2024-11-30',
                 'is_current'      => false,
+                'tech_stack'      => ['Laravel', 'Bootstrap', 'jQuery', 'MySQL', 'GA4', 'Meta Pixel', 'GTM'],
                 'description'     => [
                     'en' => "<ul><li>Developed the company's official website and internal CRM platform from scratch using Laravel (PHP) backend and Bootstrap/jQuery frontend.</li><li>Integrated tracking and analytics tools including GA4, Microsoft Clarity, Meta Pixel, and GTM to enable SEO and marketing insights.</li><li>Acted as Point of Contact (POC) with cross-functional teams.</li></ul>",
                     'ar' => "<ul><li>طوّرت الموقع الرسمي للشركة ومنصة CRM الداخلية من الصفر باستخدام Laravel (PHP) في الخلفية وBootstrap/jQuery في الواجهة.</li><li>كاملت أدوات التتبع والتحليلات بما فيها GA4 وMicrosoft Clarity وMeta Pixel وGTM لتمكين رؤى SEO والتسويق.</li><li>عملت بوصفي نقطة اتصال (POC) مع الفرق متعددة الوظائف.</li></ul>",
@@ -145,6 +149,7 @@ class CvSeeder extends Seeder
                 'start_date'      => '2024-05-01',
                 'end_date'        => '2024-08-31',
                 'is_current'      => false,
+                'tech_stack'      => ['Bootstrap', 'jQuery', 'Firebase'],
                 'description'     => [
                     'en' => "<ul><li>Developed the company's official website from scratch using Bootstrap/jQuery frontend.</li><li>Performed requirements analysis and implementation to build the company's website and link it with Firebase.</li></ul>",
                     'ar' => "<ul><li>طوّرت الموقع الرسمي للشركة من الصفر باستخدام Bootstrap/jQuery في الواجهة الأمامية.</li><li>أجريت تحليل المتطلبات وتنفيذها لبناء موقع الشركة وربطه بـ Firebase.</li></ul>",
@@ -160,6 +165,7 @@ class CvSeeder extends Seeder
                 'start_date'      => '2021-07-01',
                 'end_date'        => '2023-10-31',
                 'is_current'      => false,
+                'tech_stack'      => ['Laravel', 'Tailwind', 'MySQL', 'Microsoft SSO'],
                 'description'     => [
                     'en' => "<ul><li><strong>NIET Project:</strong> Developed official website and internal CRM platform from scratch using Laravel (PHP) backend. Used Tailwind CSS and MySQL. Implemented login via Microsoft account.</li><li><strong>STEM Project:</strong> Was one of the members of the Laravel team, specialized in programming the entire website with its MySQL database. (Palestine Ministry of Education educational platform for ages 6–12.)</li></ul>",
                     'ar' => "<ul><li><strong>مشروع NIET:</strong> طوّرت الموقع الرسمي ومنصة CRM الداخلية من الصفر باستخدام Laravel (PHP) وTailwind CSS وMySQL، مع تطبيق تسجيل الدخول عبر حساب Microsoft.</li><li><strong>مشروع STEM:</strong> كنت أحد أعضاء فريق Laravel المتخصص في برمجة الموقع بأكمله مع قاعدة بيانات MySQL. (منصة تعليمية تابعة لوزارة التربية والتعليم الفلسطينية للفئة العمرية 6–12 سنة.)</li></ul>",
@@ -215,30 +221,31 @@ class CvSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $skills = [
-            // Backend
-            ['name' => ['en' => 'PHP', 'ar' => 'PHP'], 'category' => SkillCategory::Backend, 'level' => 5, 'icon' => 'code', 'order' => 1],
-            ['name' => ['en' => 'Laravel', 'ar' => 'Laravel'], 'category' => SkillCategory::Backend, 'level' => 5, 'icon' => 'layers', 'order' => 2],
-            ['name' => ['en' => 'MySQL', 'ar' => 'MySQL'], 'category' => SkillCategory::Backend, 'level' => 5, 'icon' => 'database', 'order' => 3],
-            ['name' => ['en' => 'RESTful API', 'ar' => 'RESTful API'], 'category' => SkillCategory::Backend, 'level' => 5, 'icon' => 'network', 'order' => 4],
-            ['name' => ['en' => 'Firebase', 'ar' => 'Firebase'], 'category' => SkillCategory::Backend, 'level' => 4, 'icon' => 'flame', 'order' => 5],
+            // ── Backend ──────────────────────────────────────────────────────
+            ['name' => ['en' => 'PHP',         'ar' => 'PHP'],         'category' => SkillCategory::Backend,  'level' => 5, 'icon_set' => 'simple-icons', 'icon_slug' => 'php',        'icon_color' => '#777BB4', 'order' => 1],
+            ['name' => ['en' => 'Laravel',     'ar' => 'Laravel'],     'category' => SkillCategory::Backend,  'level' => 5, 'icon_set' => 'simple-icons', 'icon_slug' => 'laravel',    'icon_color' => '#FF2D20', 'order' => 2],
+            ['name' => ['en' => 'MySQL',       'ar' => 'MySQL'],       'category' => SkillCategory::Backend,  'level' => 5, 'icon_set' => 'simple-icons', 'icon_slug' => 'mysql',      'icon_color' => '#4479A1', 'order' => 3],
+            ['name' => ['en' => 'RESTful API', 'ar' => 'RESTful API'], 'category' => SkillCategory::Backend,  'level' => 5, 'icon_set' => 'lucide',        'icon_slug' => 'webhook',    'icon_color' => null,      'order' => 4],
+            ['name' => ['en' => 'Firebase',    'ar' => 'Firebase'],    'category' => SkillCategory::Backend,  'level' => 4, 'icon_set' => 'simple-icons', 'icon_slug' => 'firebase',   'icon_color' => '#FFCA28', 'order' => 5],
 
-            // Frontend
-            ['name' => ['en' => 'HTML & CSS', 'ar' => 'HTML وCSS'], 'category' => SkillCategory::Frontend, 'level' => 5, 'icon' => 'layout', 'order' => 1],
-            ['name' => ['en' => 'SASS', 'ar' => 'SASS'], 'category' => SkillCategory::Frontend, 'level' => 4, 'icon' => 'palette', 'order' => 2],
-            ['name' => ['en' => 'JavaScript', 'ar' => 'JavaScript'], 'category' => SkillCategory::Frontend, 'level' => 4, 'icon' => 'braces', 'order' => 3],
-            ['name' => ['en' => 'TypeScript', 'ar' => 'TypeScript'], 'category' => SkillCategory::Frontend, 'level' => 4, 'icon' => 'file-code', 'order' => 4],
-            ['name' => ['en' => 'Vue.js', 'ar' => 'Vue.js'], 'category' => SkillCategory::Frontend, 'level' => 4, 'icon' => 'triangle', 'order' => 5],
-            ['name' => ['en' => 'Tailwind CSS', 'ar' => 'Tailwind CSS'], 'category' => SkillCategory::Frontend, 'level' => 5, 'icon' => 'wind', 'order' => 6],
-            ['name' => ['en' => 'Bootstrap', 'ar' => 'Bootstrap'], 'category' => SkillCategory::Frontend, 'level' => 5, 'icon' => 'layout-grid', 'order' => 7],
-            ['name' => ['en' => 'jQuery & AJAX', 'ar' => 'jQuery وAJAX'], 'category' => SkillCategory::Frontend, 'level' => 4, 'icon' => 'zap', 'order' => 8],
-            ['name' => ['en' => 'Inertia.js', 'ar' => 'Inertia.js'], 'category' => SkillCategory::Frontend, 'level' => 4, 'icon' => 'arrow-right-left', 'order' => 9],
+            // ── Frontend ─────────────────────────────────────────────────────
+            ['name' => ['en' => 'HTML & CSS',    'ar' => 'HTML وCSS'],    'category' => SkillCategory::Frontend, 'level' => 5, 'icon_set' => 'simple-icons', 'icon_slug' => 'html5',       'icon_color' => '#E34F26', 'order' => 1],
+            ['name' => ['en' => 'SASS',          'ar' => 'SASS'],          'category' => SkillCategory::Frontend, 'level' => 4, 'icon_set' => 'simple-icons', 'icon_slug' => 'sass',        'icon_color' => '#CC6699', 'order' => 2],
+            ['name' => ['en' => 'JavaScript',    'ar' => 'JavaScript'],    'category' => SkillCategory::Frontend, 'level' => 4, 'icon_set' => 'simple-icons', 'icon_slug' => 'javascript',  'icon_color' => '#F7DF1E', 'order' => 3],
+            ['name' => ['en' => 'TypeScript',    'ar' => 'TypeScript'],    'category' => SkillCategory::Frontend, 'level' => 4, 'icon_set' => 'simple-icons', 'icon_slug' => 'typescript',  'icon_color' => '#3178C6', 'order' => 4],
+            ['name' => ['en' => 'Vue.js',        'ar' => 'Vue.js'],        'category' => SkillCategory::Frontend, 'level' => 4, 'icon_set' => 'simple-icons', 'icon_slug' => 'vuedotjs',    'icon_color' => '#4FC08D', 'order' => 5],
+            ['name' => ['en' => 'Tailwind CSS',  'ar' => 'Tailwind CSS'],  'category' => SkillCategory::Frontend, 'level' => 5, 'icon_set' => 'simple-icons', 'icon_slug' => 'tailwindcss', 'icon_color' => '#06B6D4', 'order' => 6],
+            ['name' => ['en' => 'Bootstrap',     'ar' => 'Bootstrap'],     'category' => SkillCategory::Frontend, 'level' => 5, 'icon_set' => 'simple-icons', 'icon_slug' => 'bootstrap',   'icon_color' => '#7952B3', 'order' => 7],
+            ['name' => ['en' => 'jQuery & AJAX', 'ar' => 'jQuery وAJAX'],  'category' => SkillCategory::Frontend, 'level' => 4, 'icon_set' => 'simple-icons', 'icon_slug' => 'jquery',      'icon_color' => '#0769AD', 'order' => 8],
+            ['name' => ['en' => 'Inertia.js',    'ar' => 'Inertia.js'],    'category' => SkillCategory::Frontend, 'level' => 4, 'icon_set' => 'simple-icons', 'icon_slug' => 'inertia',     'icon_color' => '#9553E9', 'order' => 9],
 
-            // Tools
-            ['name' => ['en' => 'Git & GitHub', 'ar' => 'Git وGitHub'], 'category' => SkillCategory::Tools, 'level' => 5, 'icon' => 'git-branch', 'order' => 1],
-            ['name' => ['en' => 'CI/CD Workflows', 'ar' => 'سير عمل CI/CD'], 'category' => SkillCategory::Tools, 'level' => 4, 'icon' => 'refresh-cw', 'order' => 2],
-            ['name' => ['en' => 'Server Deployment (FTP, SSH)', 'ar' => 'نشر الخوادم (FTP، SSH)'], 'category' => SkillCategory::Tools, 'level' => 4, 'icon' => 'server', 'order' => 3],
-            ['name' => ['en' => 'Linux Server Admin', 'ar' => 'إدارة خوادم Linux'], 'category' => SkillCategory::Tools, 'level' => 3, 'icon' => 'terminal', 'order' => 4],
-            ['name' => ['en' => 'Jira & Agile / Scrum', 'ar' => 'Jira وأجايل / سكرم'], 'category' => SkillCategory::Tools, 'level' => 4, 'icon' => 'kanban', 'order' => 5],
+            // ── Tools & DevOps ────────────────────────────────────────────────
+            ['name' => ['en' => 'Git',                          'ar' => 'Git'],                             'category' => SkillCategory::Tools, 'level' => 5, 'icon_set' => 'simple-icons', 'icon_slug' => 'git',      'icon_color' => '#F05032', 'order' => 1],
+            ['name' => ['en' => 'GitHub',                       'ar' => 'GitHub'],                          'category' => SkillCategory::Tools, 'level' => 5, 'icon_set' => 'simple-icons', 'icon_slug' => 'github',   'icon_color' => '#FFFFFF', 'order' => 2],
+            ['name' => ['en' => 'CI/CD Workflows',              'ar' => 'سير عمل CI/CD'],                   'category' => SkillCategory::Tools, 'level' => 4, 'icon_set' => 'lucide',        'icon_slug' => 'git-branch', 'icon_color' => null,    'order' => 3],
+            ['name' => ['en' => 'Server Deployment (FTP, SSH)', 'ar' => 'نشر الخوادم (FTP، SSH)'],          'category' => SkillCategory::Tools, 'level' => 4, 'icon_set' => 'lucide',        'icon_slug' => 'server',   'icon_color' => null,      'order' => 4],
+            ['name' => ['en' => 'Linux Server Admin',           'ar' => 'إدارة خوادم Linux'],               'category' => SkillCategory::Tools, 'level' => 3, 'icon_set' => 'lucide',        'icon_slug' => 'terminal', 'icon_color' => null,      'order' => 5],
+            ['name' => ['en' => 'Jira & Agile / Scrum',         'ar' => 'Jira وأجايل / سكرم'],              'category' => SkillCategory::Tools, 'level' => 4, 'icon_set' => 'simple-icons', 'icon_slug' => 'jira',     'icon_color' => '#0052CC', 'order' => 6],
         ];
 
         foreach ($skills as $skill) {

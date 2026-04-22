@@ -21,6 +21,8 @@ class ExperienceRequest extends FormRequest
             'location.ar'        => 'required|string|max:255',
             'description.en'     => 'required|string',
             'description.ar'     => 'required|string',
+            'tech_stack'         => 'nullable|array',
+            'tech_stack.*'       => 'string|max:80',
             'start_date'         => 'required|date',
             'end_date'           => 'nullable|date|after_or_equal:start_date',
             'is_current'         => 'boolean',

@@ -1,10 +1,11 @@
-import { ref, watchEffect } from 'vue';
+import { ref } from 'vue';
 
 const isDark = ref(false);
 
 function init() {
     const stored = localStorage.getItem('theme');
-    isDark.value = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    // Default = dark unless user has explicitly chosen light
+    isDark.value = stored ? stored === 'dark' : true;
     apply();
 }
 

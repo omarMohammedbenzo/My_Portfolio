@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Enums\SettingsGroup;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\SettingsRequest;
 use App\Models\Setting;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -18,13 +18,16 @@ class SettingsController extends Controller
 
         return Inertia::render('Dashboard/Settings', [
             'settings' => $all,
+            'themes'   => config('themes', []),
             'groups'   => collect(SettingsGroup::cases())->map(fn ($g) => ['value' => $g->value, 'label' => $g->label()]),
         ]);
     }
 
-    public function update(SettingsRequest $request): RedirectResponse
+    public function update(Request $request): RedirectResponse
     {
-        foreach ($request->validated()['settings'] as $key => $value) {
+        $data = $request->except(['_method', '_token']);
+
+        foreach ($data as $key => $value) {
             Setting::set($key, $value);
         }
 

@@ -14,7 +14,10 @@ class Skill extends Model
         'name',
         'category',
         'level',
-        'icon',
+        'icon_slug',
+        'icon_set',
+        'icon_color',
+        'years',
         'order',
     ];
 
@@ -25,6 +28,7 @@ class Skill extends Model
         return [
             'category' => SkillCategory::class,
             'level'    => 'integer',
+            'years'    => 'integer',
             'order'    => 'integer',
         ];
     }

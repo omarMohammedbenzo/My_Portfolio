@@ -15,7 +15,9 @@
       "Bash(php -l database/seeders/SettingsSeeder.php)",
       "Bash(php -l database/seeders/DatabaseSeeder.php)",
       "Bash(grep -v \"^\\\\s*$\")",
-      "Bash(awk '{print $NF}')"
+      "Bash(awk '{print $NF}')",
+      "Bash(grep -E \"\\\\.\\(vue|js|php\\)$\")",
+      "Bash(git add *)"
     ],
     "additionalDirectories": [
       "d:\\Work\\portfolio_temp"

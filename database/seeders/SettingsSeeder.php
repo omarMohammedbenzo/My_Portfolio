@@ -24,7 +24,6 @@ class SettingsSeeder extends Seeder
             ['key' => 'about_image_2_webp','group' => 'images', 'value' => 'images/about/about-coding-2.webp'],
             ['key' => 'about_image_2_alt', 'group' => 'images', 'value' => ['en' => 'Omar at the office', 'ar' => 'عمر في المكتب']],
 
-            // og:image must be an absolute URL — placeholder until APP_URL is set on production
             ['key' => 'og_image', 'group' => 'images', 'value' => 'images/about/about-coding-2.jpg'],
 
             // ── SEO ──────────────────────────────────────────────────────────
@@ -45,6 +44,49 @@ class SettingsSeeder extends Seeder
             ['key' => 'site_active',       'group' => 'general', 'value' => true],
             ['key' => 'contact_email',     'group' => 'general', 'value' => 'umar27.11.2001@gmail.com'],
             ['key' => 'google_analytics',  'group' => 'general', 'value' => null],
+
+            // ── Appearance ───────────────────────────────────────────────────
+            ['key' => 'active_theme',          'group' => 'appearance', 'value' => 'violet'],
+            ['key' => 'mascot_enabled',        'group' => 'appearance', 'value' => true],
+            ['key' => 'mascot_animation_url',  'group' => 'appearance', 'value' => '/lottie/mascot.json'],
+
+            // ── Hero & Home Page ──────────────────────────────────────────────
+            ['key' => 'hero_eyebrow', 'group' => 'home', 'value' => [
+                'en' => "Hi, I'm Omar 👋",
+                'ar' => 'مرحباً، أنا عمر 👋',
+            ]],
+            ['key' => 'hero_title_template', 'group' => 'home', 'value' => [
+                'en' => "I'm a {role} Developer",
+                'ar' => 'أنا {role}',
+            ]],
+            ['key' => 'hero_rotating_titles', 'group' => 'home', 'value' => [
+                'en' => ['Full-Stack', 'Backend', 'Frontend', 'Software Engineer', 'Laravel', 'Vue.js'],
+                'ar' => ['متكامل', 'خلفي', 'أمامي', 'مهندس برمجيات', 'Laravel', 'Vue.js'],
+            ]],
+            ['key' => 'hero_tagline', 'group' => 'home', 'value' => [
+                'en' => 'Building clean, scalable web applications — from backend architecture to pixel-perfect frontends.',
+                'ar' => 'أبني تطبيقات ويب نظيفة وقابلة للتوسع — من البنية الخلفية إلى الواجهات الدقيقة.',
+            ]],
+            ['key' => 'about_brief', 'group' => 'home', 'value' => [
+                'en' => "I'm a Full-Stack Web Developer with 4 years of hands-on experience building scalable web applications using Laravel and Vue.js. I thrive at the intersection of clean backend architecture and polished frontend interfaces — whether that's a complex CRM, a payment-integrated platform, or a performant API powering mobile apps. Based in Cairo, currently building at BusinessBuilding.sa.",
+                'ar' => 'أنا مطور ويب متكامل بخبرة عملية تمتد لـ 4 سنوات في بناء تطبيقات ويب قابلة للتوسع باستخدام Laravel وVue.js. أجمع بين البنية الخلفية النظيفة والواجهات الأمامية المصقولة — سواء كان ذلك نظام CRM معقدًا أو منصة مدفوعات متكاملة أو API يشغّل تطبيقات الجوال. مقيم في القاهرة، أعمل حاليًا في BusinessBuilding.sa.',
+            ]],
+            ['key' => 'stat_experience', 'group' => 'home', 'value' => [
+                'value' => '4+',
+                'label' => ['en' => 'Years Experience', 'ar' => 'سنوات خبرة'],
+            ]],
+            ['key' => 'stat_projects', 'group' => 'home', 'value' => [
+                'value' => '20+',
+                'label' => ['en' => 'Projects Delivered', 'ar' => 'مشروع منجز'],
+            ]],
+            ['key' => 'stat_technologies', 'group' => 'home', 'value' => [
+                'value' => '10+',
+                'label' => ['en' => 'Technologies', 'ar' => 'تقنية'],
+            ]],
+            ['key' => 'stat_languages', 'group' => 'home', 'value' => [
+                'value' => '2',
+                'label' => ['en' => 'Languages', 'ar' => 'لغة'],
+            ]],
         ];
 
         foreach ($settings as $s) {

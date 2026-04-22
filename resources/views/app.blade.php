@@ -1,3 +1,15 @@
+@php
+    use App\Models\Setting;
+    $activeThemeKey = Setting::get('active_theme') ?? 'violet';
+    $themes         = config('themes', []);
+    $theme          = $themes[$activeThemeKey] ?? $themes['violet'] ?? [
+        'primary'       => '#8b5cf6',
+        'secondary'     => '#6366f1',
+        'glow'          => '#a78bfa',
+        'primary_rgb'   => '139, 92, 246',
+        'secondary_rgb' => '99, 102, 241',
+    ];
+@endphp
 <!DOCTYPE html>
 <html
     lang="{{ $page['props']['locale'] ?? app()->getLocale() }}"
@@ -21,11 +33,22 @@
         rel="stylesheet"
     />
 
+    {{-- Active theme CSS variables — injected server-side so they apply before any JS --}}
+    <style>
+        :root {
+            --color-accent-primary:       {{ $theme['primary'] }};
+            --color-accent-secondary:     {{ $theme['secondary'] }};
+            --color-accent-glow:          {{ $theme['glow'] }};
+            --color-accent-primary-rgb:   {{ $theme['primary_rgb'] }};
+            --color-accent-secondary-rgb: {{ $theme['secondary_rgb'] }};
+        }
+    </style>
+
     @routes
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @inertiaHead
 </head>
-<body class="font-sans antialiased bg-background text-foreground">
+<body class="font-sans antialiased bg-background text-foreground theme-{{ $activeThemeKey }}">
     @inertia
 </body>
 </html>
