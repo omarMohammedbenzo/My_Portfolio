@@ -30,9 +30,12 @@
     --radius: 0.5rem;
 }
 
-/* Arabic font override */
+/* Arabic font — Cairo: geometric, clean, designed for modern Arabic UI */
 html[lang='ar'] {
-    font-family: 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Cairo', ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: 0;
+    line-height: 1.75;
+    word-spacing: 0.05em;
 }
 
 /* Dark mode overrides (class-based) */
