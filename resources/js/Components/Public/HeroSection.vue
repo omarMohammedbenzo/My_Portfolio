@@ -19,7 +19,7 @@ function tr(obj) { return obj?.[loc] || obj?.en || ''; }
 
 // ── Editable settings with fallbacks ────────────────────────────────────
 const eyebrow         = computed(() => tr(props.settings?.hero_eyebrow)     || "Hi, I'm Omar 👋");
-const titleTemplate   = computed(() => tr(props.settings?.hero_title_template) || "I'm a {role} Developer");
+const titleTemplate   = computed(() => tr(props.settings?.hero_title_template) || "I'm a {role}  Developer");
 const rotatingTitles  = computed(() => {
     const t = props.settings?.hero_rotating_titles;
     return (t?.[loc] ?? t?.en ?? ['Full-Stack', 'Backend', 'Frontend', 'Vue.js']);
@@ -98,10 +98,7 @@ onMounted(() => {
                 }"
             />
             <!-- Noise texture overlay -->
-            <div
-                class="absolute inset-0 opacity-[0.03]"
-                style="background-image: url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\"); background-size: 200px;"
-            />
+            <div class="noise-overlay absolute inset-0 opacity-[0.03]" />
         </div>
 
         <!-- Content -->
@@ -122,7 +119,9 @@ onMounted(() => {
                     <h1 class="text-4xl font-extrabold leading-tight text-foreground sm:text-5xl lg:text-6xl">
                         {{ templateParts.before }}<span
                             class="gradient-text inline-block min-w-[2ch]"
-                        >{{ rotatingWord }}</span>{{ templateParts.after }}
+                        >{{ rotatingWord }}</span>
+                        <br>
+                        {{ templateParts.after }}
                     </h1>
 
                     <!-- Tagline -->
@@ -251,3 +250,10 @@ onMounted(() => {
         <AnimatedWaves fill="var(--color-background)" />
     </section>
 </template>
+
+<style scoped>
+.noise-overlay {
+    background-image: url("data:image/svg+xml,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='1'/></svg>");
+    background-size: 200px;
+}
+</style>
