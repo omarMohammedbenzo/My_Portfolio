@@ -27,7 +27,7 @@ const props = defineProps({
 });
 
 function setDays(d) {
-    router.get(route('dashboard.analytics'), { days: d }, { preserveScroll: true });
+    router.get(route('dashboard.analytics.index'), { days: d }, { preserveScroll: true });
 }
 
 // Views over time chart

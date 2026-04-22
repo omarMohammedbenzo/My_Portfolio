@@ -13,7 +13,7 @@ const expanded   = ref(null);
 
 function confirmDelete(id) { toDeleteId.value = id; confirmRef.value.show(); }
 function doDelete()        { router.delete(route('dashboard.messages.destroy', toDeleteId.value), { preserveScroll: true }); }
-function markRead(id)      { router.patch(route('dashboard.messages.read', id), {}, { preserveScroll: true }); }
+function markRead(id)      { router.put(route('dashboard.messages.read', id), {}, { preserveScroll: true }); }
 function toggle(id)        { expanded.value = expanded.value === id ? null : id; }
 
 function mailtoLink(msg) {

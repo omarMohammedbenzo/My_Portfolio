@@ -14,7 +14,8 @@
       "Bash(php -l database/seeders/CvSeeder.php)",
       "Bash(php -l database/seeders/SettingsSeeder.php)",
       "Bash(php -l database/seeders/DatabaseSeeder.php)",
-      "Bash(grep -v \"^\\\\s*$\")"
+      "Bash(grep -v \"^\\\\s*$\")",
+      "Bash(awk '{print $NF}')"
     ],
     "additionalDirectories": [
       "d:\\Work\\portfolio_temp"
