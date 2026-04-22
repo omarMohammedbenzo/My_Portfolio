@@ -64,19 +64,19 @@ Route::prefix('dashboard')
         Route::get('/personal-info', [\App\Http\Controllers\Dashboard\PersonalInfoController::class, 'edit'])->name('personal-info.edit');
         Route::put('/personal-info', [\App\Http\Controllers\Dashboard\PersonalInfoController::class, 'update'])->name('personal-info.update');
 
-        Route::resource('experiences', \App\Http\Controllers\Dashboard\ExperienceController::class)->except(['show']);
         Route::put('experiences/reorder', [\App\Http\Controllers\Dashboard\ExperienceController::class, 'reorder'])->name('experiences.reorder');
+        Route::resource('experiences', \App\Http\Controllers\Dashboard\ExperienceController::class)->except(['show']);
 
-        Route::resource('educations', \App\Http\Controllers\Dashboard\EducationController::class)->except(['show']);
         Route::put('educations/reorder', [\App\Http\Controllers\Dashboard\EducationController::class, 'reorder'])->name('educations.reorder');
+        Route::resource('educations', \App\Http\Controllers\Dashboard\EducationController::class)->except(['show']);
 
-        Route::resource('skills', \App\Http\Controllers\Dashboard\SkillController::class)->except(['show']);
         Route::put('skills/reorder', [\App\Http\Controllers\Dashboard\SkillController::class, 'reorder'])->name('skills.reorder');
+        Route::resource('skills', \App\Http\Controllers\Dashboard\SkillController::class)->except(['show']);
 
-        Route::resource('projects', \App\Http\Controllers\Dashboard\ProjectController::class)->except(['show']);
         Route::put('projects/reorder', [\App\Http\Controllers\Dashboard\ProjectController::class, 'reorder'])->name('projects.reorder');
         Route::post('projects/{project}/images', [\App\Http\Controllers\Dashboard\ProjectController::class, 'uploadImage'])->name('projects.images.store');
         Route::delete('projects/{project}/images/{image}', [\App\Http\Controllers\Dashboard\ProjectController::class, 'deleteImage'])->name('projects.images.destroy');
+        Route::resource('projects', \App\Http\Controllers\Dashboard\ProjectController::class)->except(['show']);
 
         Route::get('/messages', [\App\Http\Controllers\Dashboard\MessageController::class, 'index'])->name('messages.index');
         Route::put('/messages/{message}/read', [\App\Http\Controllers\Dashboard\MessageController::class, 'markRead'])->name('messages.read');
