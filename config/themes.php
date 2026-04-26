@@ -38,4 +38,13 @@ return [
         'secondary_rgb' => '249, 115, 22',
     ],
 
+    'lime' => [
+        'name'          => 'Lime',
+        'primary'       => '#CAF702',
+        'secondary'     => '#B8D900',
+        'glow'          => '#D7F433',
+        'primary_rgb'   => '202, 247, 2',
+        'secondary_rgb' => '184, 217, 0',
+    ],
+
 ];
